@@ -4,7 +4,9 @@
   "description": "Magazin Bricolaj, MapareExcel, Colorare, Raportare prin e-mail",
   "main": "Main.xaml",
   "dependencies": {
+    "BalaReva.EasyExcel.Activities": "[32.0.0]",
     "UiPath.Excel.Activities": "[2.22.3]",
+    "UiPath.GSuite.Activities": "[2.4.3]",
     "UiPath.Mail.Activities": "[1.21.1]",
     "UiPath.System.Activities": "[23.10.3]",
     "UiPath.Testing.Activities": "[23.10.0]",
@@ -14,7 +16,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "23.10.2.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -44,7 +46,6 @@
       "ignoredFiles": []
     },
     "fileInfoCollection": [],
-    "modernBehavior": true,
     "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",

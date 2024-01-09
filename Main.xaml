@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="786.4,927.2" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="859.2,1168" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:bem="clr-namespace:BalaReva.EasyExcel.Main;assembly=BalaReva.EasyExcel" xmlns:bes="clr-namespace:BalaReva.EasyExcel.Sheets;assembly=BalaReva.EasyExcel" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -42,6 +42,25 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.Excel.Activities.Business.Filter</x:String>
+      <x:String>BalaReva.EasyExcel.Main</x:String>
+      <x:String>BalaReva.EasyExcel.Utilities</x:String>
+      <x:String>BalaReva.EasyExcel.Base</x:String>
+      <x:String>BalaReva.EasyExcel.Sheets</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Activities.Utils</x:String>
+      <x:String>UiPath.Mail.Activities.Business.HtmlEditor</x:String>
+      <x:String>UiPath.Mail.Activities.Business</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -102,9 +121,24 @@
       <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>BalaReva.EasyExcel</AssemblyReference>
+      <AssemblyReference>BalaReva.EasyExcel.Utilities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="574.4,862.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="512,1103.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_Dedeman" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_Mathaus" />
@@ -116,20 +150,20 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Mathaus.ro" sap:VirtualizedContainerService.HintSize="512,504" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <Sequence DisplayName="Mathaus.ro" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Mathaus.ro: Extrage Nume,URL,Pret" sap:VirtualizedContainerService.HintSize="449.6,52.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InteractionMode="DebuggerApi" ScopeGuid="c8e2286a-097c-4e92-bcfd-c9ce30121cd8" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Mathaus.ro: Extrage Nume,URL,Pret" sap:VirtualizedContainerService.HintSize="483.20000000000005,300" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InteractionMode="DebuggerApi" ScopeGuid="c8e2286a-097c-4e92-bcfd-c9ce30121cd8" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,2871.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_Extraction" />
               </Sequence.Variables>
@@ -270,19 +304,19 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:AddDataColumn>
-        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Mathaus]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Mathaus]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="606.4,1509.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
           <ui:ForEachRow.Body>
             <ActivityAction x:TypeArguments="sd:DataRow">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="572.8,1361.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="572.8,1321.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Scrap Cod Produs" sap:VirtualizedContainerService.HintSize="529.6,1272" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="4ada4364-eee9-4411-8a2d-944aaffadf59" Version="V2">
+                <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Scrap Cod Produs" sap:VirtualizedContainerService.HintSize="529.6,1232" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="4ada4364-eee9-4411-8a2d-944aaffadf59" Version="V2">
                   <uix:NApplicationCard.Body>
                     <ActivityAction x:TypeArguments="x:Object">
                       <ActivityAction.Argument>
@@ -462,26 +496,27 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:AppendRange>
     </Sequence>
-    <Sequence DisplayName="Dedeman.ro" sap:VirtualizedContainerService.HintSize="512,83.2" sap2010:WorkflowViewState.IdRef="Sequence_18">
+    <Sequence DisplayName="Dedeman.ro" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_18">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Dedeman.ro: Extrage Nume,URL,Pret" sap:VirtualizedContainerService.HintSize="449.6,52.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="4c0d5b89-2a3e-4a55-a8c8-190f795d7779" Version="V2">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Dedeman.ro: Extrage Nume,URL,Pret" sap:VirtualizedContainerService.HintSize="483.20000000000005,300" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="4c0d5b89-2a3e-4a55-a8c8-190f795d7779" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,3467.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,3464" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_Extraction" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Introduce link magazin" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="HardwareEvents" ScopeIdentifier="4c0d5b89-2a3e-4a55-a8c8-190f795d7779" Text="https://www.dedeman.ro/" Version="V3">
@@ -515,7 +550,7 @@
                   <uix:TargetAnchorable BrowserURL="https://www.dedeman.ro/ro/mobilier-gradina-si-terasa/c/18" DesignTimeRectangle="89, 364, 408, 39" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Mobilier gradina'" FullSelectorArgument="&lt;webctrl id='ui-id-315' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ui-id-315' tag='A' type='' class='ui-menu-item-wrapper ui-state-active' aaname='Mobilier gradina si terasa' check:innerText='Mobilier gradina si terasa' /&gt;" Guid="a6cb75a9-8875-4692-80a8-682aa15e864f" InformativeScreenshot="d27b67c7978ea70e3858a776b690281e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='31833736' title='Mobilier grădină și terasă - Dedeman - Dedicat planurilor tale' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
                 </uix:NClick.Target>
               </uix:NClick>
-              <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dt_Extraction]" DisplayName="Extragere Nume,URL,Pret dintr-o categorie" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='Nume' ReferenceName='Column0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='URL' ReferenceName='Column1'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='Pret' ReferenceName='Column3'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext' name2='Column1' attr2='href'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='strong' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;column css-selector='.price' name='Column3' attr='fulltext' /&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NExtractData_4" LimitExtractionTo="Rows" MaximumResults="11" ScopeIdentifier="4c0d5b89-2a3e-4a55-a8c8-190f795d7779" Version="V3">
+              <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dt_Extraction]" DisplayName="Extragere Nume,URL,Pret dintr-o categorie" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='Nume'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='URL'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column3' Name='Pret'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext' name2='Column1' attr2='href'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='strong' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;column css-selector='.price' name='Column3' attr='fulltext' /&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NExtractData_4" LimitExtractionTo="Rows" MaximumResults="11" ScopeIdentifier="4c0d5b89-2a3e-4a55-a8c8-190f795d7779" Version="V3">
                 <uix:NExtractData.NextLink>
                   <uix:TargetAnchorable BrowserURL="https://www.dedeman.ro/ro/mobilier-gradina-si-terasa/c/18" CvElementArea="1349, 539, 43, 42" CvTextArea="1364, 550, 13, 17" CvTextArgument="&gt;" CvType="Button" DesignTimeRectangle="1352, 541, 40, 40" DesignTimeScaleFactor="1.25" FriendlyName="'A'" FullSelectorArgument="&lt;webctrl aria-label='Next' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Next' tag='A' type='' class='pagination-action pagination-next' aaname='' /&gt;" Guid="77dc36fd-7bf4-4ce5-abd2-d0d3bd25836b" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='31833736' title='Mobilier grădină și terasă - Dedeman - Dedicat planurilor tale' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
                 </uix:NExtractData.NextLink>
@@ -769,20 +804,20 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:AppendRange>
     </Sequence>
-    <Sequence DisplayName="Mam-Bricolaj.ro" sap:VirtualizedContainerService.HintSize="512,83.2" sap2010:WorkflowViewState.IdRef="Sequence_22">
+    <Sequence DisplayName="Mam-Bricolaj.ro" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_22">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Dedeman.ro: Extrage Nume,URL,Pret" sap:VirtualizedContainerService.HintSize="449.6,52.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" ScopeGuid="4c0d5b89-2a3e-4a55-a8c8-190f795d7779" Version="V2">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Dedeman.ro: Extrage Nume,URL,Pret" sap:VirtualizedContainerService.HintSize="483.20000000000005,300" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" ScopeGuid="4c0d5b89-2a3e-4a55-a8c8-190f795d7779" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,2871.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_Extraction" />
               </Sequence.Variables>
@@ -870,7 +905,7 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="CodProdus" DataTable="[dt_Mam]" DisplayName="Adauga coloana CodProdus in datatable" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3">
+        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="CodProdus" DataTable="[dt_Mam]" DisplayName="Adauga coloana CodProdus in datatable" sap:VirtualizedContainerService.HintSize="334.4,188" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1040,6 +1075,540 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:AppendRange>
+    </Sequence>
+    <Sequence DisplayName="Lucrul cu Excel" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_26">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence DisplayName="Soratrea preturilor" sap:VirtualizedContainerService.HintSize="512,83.2" sap2010:WorkflowViewState.IdRef="Sequence_30">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Sequence DisplayName="Mathaus Excel" sap:VirtualizedContainerService.HintSize="688,83.2" sap2010:WorkflowViewState.IdRef="Sequence_33">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteCell Cell="A1" DisplayName="Write Cell Workblook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="Mathaus URL" WorkbookPath="ListaMagazine.xlsx" />
+          <ui:WriteCell Cell="B1" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Sheet1" Text="Pret" WorkbookPath="ListaMagazine.xlsx" />
+          <ui:WriteCell Cell="C1" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Sheet1" Text="Cod" WorkbookPath="ListaMagazine.xlsx" />
+          <ui:AppendRange DataTable="[dt_Mathaus]" DisplayName="Append Range Workbook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="AppendRange_4" SheetName="Sheet1" WorkbookPath="ListaMagazine.xlsx" />
+          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="625.6,792.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2" LaunchTimeout="20">
+            <ueab:ExcelProcessScopeX.Body>
+              <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,706.4" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="529.6,594.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_6" ResizeWindow="None" WorkbookPath="ListaMagazine.xlsx">
+                    <ueab:ExcelApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,324.8" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ueab:SortX DisplayName="Sorteaza preturi a magazinului Mathaus crescator" HasHeaders="True" sap:VirtualizedContainerService.HintSize="433.6,212.8" sap2010:WorkflowViewState.IdRef="SortX_5" Range="[Excel.Sheet(&quot;Sheet1&quot;)]">
+                            <ueab:SortX.Body>
+                              <ActivityAction>
+                                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ueab:SortColumnX ColumnName="Pret" DisplayName="Sort By Column" sap:VirtualizedContainerService.HintSize="382.4,62.4" sap2010:WorkflowViewState.IdRef="SortColumnX_5" SortDirection="Ascending" />
+                                </Sequence>
+                              </ActivityAction>
+                            </ueab:SortX.Body>
+                          </ueab:SortX>
+                        </Sequence>
+                      </ActivityAction>
+                    </ueab:ExcelApplicationCard.Body>
+                  </ueab:ExcelApplicationCard>
+                </Sequence>
+              </ActivityAction>
+            </ueab:ExcelProcessScopeX.Body>
+          </ueab:ExcelProcessScopeX>
+        </Sequence>
+        <Sequence DisplayName="Dedemann Excel" sap:VirtualizedContainerService.HintSize="688,1528.8" sap2010:WorkflowViewState.IdRef="Sequence_34">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteCell Cell="A1" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="Sheet2" Text="Dedemann URL" WorkbookPath="ListaMagazine.xlsx">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:WriteCell>
+          <ui:WriteCell Cell="B1" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="Sheet2" Text="Pret" WorkbookPath="ListaMagazine.xlsx" />
+          <ui:WriteCell Cell="C1" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="Sheet2" Text="Cod" WorkbookPath="ListaMagazine.xlsx" />
+          <ui:AppendRange DataTable="[dt_Dedeman]" DisplayName="Append Range Workbook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="AppendRange_5" SheetName="Sheet2" WorkbookPath="ListaMagazine.xlsx" />
+          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="625.6,792.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_3" LaunchTimeout="20">
+            <ueab:ExcelProcessScopeX.Body>
+              <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,706.4" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="529.6,594.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_7" ResizeWindow="None" WorkbookPath="ListaMagazine.xlsx">
+                    <ueab:ExcelApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,324.8" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ueab:SortX DisplayName="Sorteaza preturile magazinului Dedemann crescator" HasHeaders="True" sap:VirtualizedContainerService.HintSize="433.6,212.8" sap2010:WorkflowViewState.IdRef="SortX_6" Range="[Excel.Sheet(&quot;Sheet2&quot;)]">
+                            <ueab:SortX.Body>
+                              <ActivityAction>
+                                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ueab:SortColumnX ColumnName="Pret" DisplayName="Sort By Column" sap:VirtualizedContainerService.HintSize="382.4,62.4" sap2010:WorkflowViewState.IdRef="SortColumnX_6" SortDirection="Ascending" />
+                                </Sequence>
+                              </ActivityAction>
+                            </ueab:SortX.Body>
+                          </ueab:SortX>
+                        </Sequence>
+                      </ActivityAction>
+                    </ueab:ExcelApplicationCard.Body>
+                  </ueab:ExcelApplicationCard>
+                </Sequence>
+              </ActivityAction>
+            </ueab:ExcelProcessScopeX.Body>
+          </ueab:ExcelProcessScopeX>
+        </Sequence>
+        <Sequence DisplayName="Man-Bricolaj Excel" sap:VirtualizedContainerService.HintSize="688,1528.8" sap2010:WorkflowViewState.IdRef="Sequence_35">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteCell Cell="A1" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_7" SheetName="Sheet3" Text="Man-Bricolaj URL" WorkbookPath="ListaMagazine.xlsx" />
+          <ui:WriteCell Cell="B1" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_8" SheetName="Sheet3" Text="Pret" WorkbookPath="ListaMagazine.xlsx" />
+          <ui:WriteCell Cell="C1" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_9" SheetName="Sheet3" Text="Cod" WorkbookPath="ListaMagazine.xlsx" />
+          <ui:AppendRange DataTable="[dt_Mam]" DisplayName="Append Range Workbook" sap:VirtualizedContainerService.HintSize="625.6,116" sap2010:WorkflowViewState.IdRef="AppendRange_6" SheetName="Sheet3" WorkbookPath="ListaMagazine.xlsx" />
+          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="625.6,792.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_4" LaunchTimeout="20">
+            <ueab:ExcelProcessScopeX.Body>
+              <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,706.4" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="529.6,594.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_8" ResizeWindow="None" WorkbookPath="ListaMagazine.xlsx">
+                    <ueab:ExcelApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,324.8" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ueab:SortX DisplayName="Sorteaza preturile magazinului Mat-Bricolaj crescator" HasHeaders="True" sap:VirtualizedContainerService.HintSize="433.6,212.8" sap2010:WorkflowViewState.IdRef="SortX_7" Range="[Excel.Sheet(&quot;Sheet3&quot;)]">
+                            <ueab:SortX.Body>
+                              <ActivityAction>
+                                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ueab:SortColumnX ColumnName="Pret" DisplayName="Sort By Column" sap:VirtualizedContainerService.HintSize="382.4,62.4" sap2010:WorkflowViewState.IdRef="SortColumnX_7" SortDirection="Ascending" />
+                                </Sequence>
+                              </ActivityAction>
+                            </ueab:SortX.Body>
+                          </ueab:SortX>
+                        </Sequence>
+                      </ActivityAction>
+                    </ueab:ExcelApplicationCard.Body>
+                  </ueab:ExcelApplicationCard>
+                </Sequence>
+              </ActivityAction>
+            </ueab:ExcelProcessScopeX.Body>
+          </ueab:ExcelProcessScopeX>
+        </Sequence>
+      </Sequence>
+      <Sequence DisplayName="Coloraea " sap:VirtualizedContainerService.HintSize="512,441.6" sap2010:WorkflowViewState.IdRef="Sequence_55">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Sequence DisplayName="Colorare Mathaus" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_56">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd1:Color" Name="GreenColor" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <bem:ExcelScope FilePassword="{x:Null}" ModifyPassword="{x:Null}" DisplayAlerts="False" DisplayName="Excel Scope" FilePath="C:\Users\patit\OneDrive\Documents\UiPath\MagazinBricolaj\ListaMagazine.xlsx" sap:VirtualizedContainerService.HintSize="572.8,224.8" sap2010:WorkflowViewState.IdRef="ExcelScope_1" MacroSettings="None" UpdateAutoLinks="Default" Visible="False">
+            <bem:ExcelScope.Body>
+              <ActivityAction x:TypeArguments="bem:ExcelParam">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="bem:ExcelParam" Name="WorkBookObj" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <bes:FillColor ExecutionResult="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B2" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_1" PatternColor="[color.Green]" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B3" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_2" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B4" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_3" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B5" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_4" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B6" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_5" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B7" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_6" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B8" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_7" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B9" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_8" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B10" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_9" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B11" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_10" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B12" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_11" PatternStyle="None" SheetName="Sheet1" />
+                </Sequence>
+              </ActivityAction>
+            </bem:ExcelScope.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </bem:ExcelScope>
+          <bem:ExcelScope FilePassword="{x:Null}" ModifyPassword="{x:Null}" DisplayAlerts="False" DisplayName="Excel Scope" FilePath="C:\Users\patit\OneDrive\Documents\UiPath\MagazinBricolaj\ListaMagazine.xlsx" sap:VirtualizedContainerService.HintSize="572.8,224.8" sap2010:WorkflowViewState.IdRef="ExcelScope_2" MacroSettings="None" UpdateAutoLinks="Default" Visible="False">
+            <bem:ExcelScope.Body>
+              <ActivityAction x:TypeArguments="bem:ExcelParam">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="bem:ExcelParam" Name="WorkBookObj" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B13" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_12" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B14" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_13" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B15" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_14" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B16" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_15" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B17" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_16" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B18" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_17" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B19" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_18" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B20" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_19" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B21" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_20" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B22" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_21" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B23" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_22" PatternStyle="None" SheetName="Sheet1" />
+                </Sequence>
+              </ActivityAction>
+            </bem:ExcelScope.Body>
+          </bem:ExcelScope>
+          <bem:ExcelScope FilePassword="{x:Null}" ModifyPassword="{x:Null}" DisplayAlerts="False" DisplayName="Excel Scope" FilePath="C:\Users\patit\OneDrive\Documents\UiPath\MagazinBricolaj\ListaMagazine.xlsx" sap:VirtualizedContainerService.HintSize="572.8,224.8" sap2010:WorkflowViewState.IdRef="ExcelScope_3" MacroSettings="None" UpdateAutoLinks="Default" Visible="False">
+            <bem:ExcelScope.Body>
+              <ActivityAction x:TypeArguments="bem:ExcelParam">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="bem:ExcelParam" Name="WorkBookObj" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[Color.RED]" CellRange="B24" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_23" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B25" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_24" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B26" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_25" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.Red]" CellRange="B27" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_26" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B28" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_27" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B29" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_28" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.Red]" CellRange="B30" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_29" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B31" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_30" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B32" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_31" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B33" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_32" PatternStyle="None" SheetName="Sheet1" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B34" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_33" PatternStyle="None" SheetName="Sheet1" />
+                </Sequence>
+              </ActivityAction>
+            </bem:ExcelScope.Body>
+          </bem:ExcelScope>
+        </Sequence>
+        <Sequence DisplayName="Colorare Dedemann" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_57">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd1:Color" Name="GreenColor" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <bem:ExcelScope FilePassword="{x:Null}" ModifyPassword="{x:Null}" DisplayAlerts="False" DisplayName="Excel Scope" FilePath="C:\Users\patit\OneDrive\Documents\UiPath\MagazinBricolaj\ListaMagazine.xlsx" sap:VirtualizedContainerService.HintSize="572.8,1586.4" sap2010:WorkflowViewState.IdRef="ExcelScope_4" MacroSettings="None" UpdateAutoLinks="Default" Visible="False">
+            <bem:ExcelScope.Body>
+              <ActivityAction x:TypeArguments="bem:ExcelParam">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="bem:ExcelParam" Name="WorkBookObj" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,1444.8" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <bes:FillColor ExecutionResult="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B2" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_34" PatternColor="[color.Green]" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B3" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_35" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B4" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_36" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B5" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_37" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B6" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_38" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B7" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_39" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B8" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_40" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B9" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_41" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B10" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_42" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B11" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_43" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B12" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_44" PatternStyle="None" SheetName="Sheet2" />
+                </Sequence>
+              </ActivityAction>
+            </bem:ExcelScope.Body>
+          </bem:ExcelScope>
+          <bem:ExcelScope FilePassword="{x:Null}" ModifyPassword="{x:Null}" DisplayAlerts="False" DisplayName="Excel Scope" FilePath="C:\Users\patit\OneDrive\Documents\UiPath\MagazinBricolaj\ListaMagazine.xlsx" sap:VirtualizedContainerService.HintSize="572.8,224.8" sap2010:WorkflowViewState.IdRef="ExcelScope_5" MacroSettings="None" UpdateAutoLinks="Default" Visible="False">
+            <bem:ExcelScope.Body>
+              <ActivityAction x:TypeArguments="bem:ExcelParam">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="bem:ExcelParam" Name="WorkBookObj" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B13" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_45" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B14" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_46" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B15" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_47" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B16" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_48" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B17" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_49" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B18" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_50" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B19" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_51" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B20" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_52" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B21" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_53" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B22" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_54" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B23" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_55" PatternStyle="None" SheetName="Sheet2" />
+                </Sequence>
+              </ActivityAction>
+            </bem:ExcelScope.Body>
+          </bem:ExcelScope>
+          <bem:ExcelScope FilePassword="{x:Null}" ModifyPassword="{x:Null}" DisplayAlerts="False" DisplayName="Excel Scope" FilePath="C:\Users\patit\OneDrive\Documents\UiPath\MagazinBricolaj\ListaMagazine.xlsx" sap:VirtualizedContainerService.HintSize="572.8,224.8" sap2010:WorkflowViewState.IdRef="ExcelScope_6" MacroSettings="None" UpdateAutoLinks="Default" Visible="False">
+            <bem:ExcelScope.Body>
+              <ActivityAction x:TypeArguments="bem:ExcelParam">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="bem:ExcelParam" Name="WorkBookObj" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[Color.RED]" CellRange="B24" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_56" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B25" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_57" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B26" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_58" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.Red]" CellRange="B27" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_59" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B28" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_60" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B29" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_61" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.Red]" CellRange="B30" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_62" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B31" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_63" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B32" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_64" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B33" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_65" PatternStyle="None" SheetName="Sheet2" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B34" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_66" PatternStyle="None" SheetName="Sheet2" />
+                </Sequence>
+              </ActivityAction>
+            </bem:ExcelScope.Body>
+          </bem:ExcelScope>
+        </Sequence>
+        <Sequence DisplayName="Colorare Man-Bricolaj" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_58">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd1:Color" Name="GreenColor" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <bem:ExcelScope FilePassword="{x:Null}" ModifyPassword="{x:Null}" DisplayAlerts="False" DisplayName="Excel Scope" FilePath="C:\Users\patit\OneDrive\Documents\UiPath\MagazinBricolaj\ListaMagazine.xlsx" sap:VirtualizedContainerService.HintSize="572.8,224.8" sap2010:WorkflowViewState.IdRef="ExcelScope_7" MacroSettings="None" UpdateAutoLinks="Default" Visible="False">
+            <bem:ExcelScope.Body>
+              <ActivityAction x:TypeArguments="bem:ExcelParam">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="bem:ExcelParam" Name="WorkBookObj" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <bes:FillColor ExecutionResult="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B2" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_67" PatternColor="[color.Green]" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B3" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_68" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B4" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_69" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B5" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_70" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B6" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_71" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B7" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_72" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B8" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_73" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B9" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_74" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B10" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_75" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B11" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_76" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.LightGreen]" CellRange="B12" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_77" PatternStyle="None" SheetName="Sheet3" />
+                </Sequence>
+              </ActivityAction>
+            </bem:ExcelScope.Body>
+          </bem:ExcelScope>
+          <bem:ExcelScope FilePassword="{x:Null}" ModifyPassword="{x:Null}" DisplayAlerts="False" DisplayName="Excel Scope" FilePath="C:\Users\patit\OneDrive\Documents\UiPath\MagazinBricolaj\ListaMagazine.xlsx" sap:VirtualizedContainerService.HintSize="572.8,224.8" sap2010:WorkflowViewState.IdRef="ExcelScope_8" MacroSettings="None" UpdateAutoLinks="Default" Visible="False">
+            <bem:ExcelScope.Body>
+              <ActivityAction x:TypeArguments="bem:ExcelParam">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="bem:ExcelParam" Name="WorkBookObj" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B13" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_78" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B14" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_79" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B15" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_80" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B16" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_81" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B17" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_82" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B18" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_83" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B19" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_84" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B20" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_85" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B21" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_86" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B22" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_87" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[color.Yellow]" CellRange="B23" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_88" PatternStyle="None" SheetName="Sheet3" />
+                </Sequence>
+              </ActivityAction>
+            </bem:ExcelScope.Body>
+          </bem:ExcelScope>
+          <bem:ExcelScope FilePassword="{x:Null}" ModifyPassword="{x:Null}" DisplayAlerts="False" DisplayName="Excel Scope" FilePath="C:\Users\patit\OneDrive\Documents\UiPath\MagazinBricolaj\ListaMagazine.xlsx" sap:VirtualizedContainerService.HintSize="572.8,224.8" sap2010:WorkflowViewState.IdRef="ExcelScope_9" MacroSettings="None" UpdateAutoLinks="Default" Visible="False">
+            <bem:ExcelScope.Body>
+              <ActivityAction x:TypeArguments="bem:ExcelParam">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="bem:ExcelParam" Name="WorkBookObj" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[Color.RED]" CellRange="B24" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_89" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B25" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_90" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B26" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_91" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.Red]" CellRange="B27" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_92" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B28" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_93" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B29" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_94" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.Red]" CellRange="B30" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_95" PatternStyle="None" SheetName="Sheet" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B31" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_96" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B32" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_97" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B33" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_98" PatternStyle="None" SheetName="Sheet3" />
+                  <bes:FillColor ExecutionResult="{x:Null}" PatternColor="{x:Null}" BackgroundColor="[COLOR.RED]" CellRange="B34" ContinueOnError="False" Delay="3" DisplayName="Fill Color" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="FillColor_99" PatternStyle="None" SheetName="Sheet3" />
+                </Sequence>
+              </ActivityAction>
+            </bem:ExcelScope.Body>
+          </bem:ExcelScope>
+        </Sequence>
+      </Sequence>
+    </Sequence>
+    <Sequence DisplayName="Raportare prin e-mail" sap:VirtualizedContainerService.HintSize="449.6,260.8" sap2010:WorkflowViewState.IdRef="Sequence_68">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="Acest e-mail conţine Excelul completat." DisplayName="Trimiterea e-mailului simplu (Gmail) SMTP " Email="rpa.project100@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="387.2,148.8" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Password="mhvpajhetgxvxrqg" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Raportare e-mail cu Excel completat, ordonat crescător şi colorat în funcţie de preţ" To="pati.toie10@gmail.com">
+        <ui:SendMail.Files>
+          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String">C:\Users\patit\OneDrive\Documents\UiPath\MagazinBricolaj\ListaMagazine.xlsx</Literal>
+            </InArgument>
+          </scg:List>
+        </ui:SendMail.Files>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:SendMail>
+    </Sequence>
+    <Sequence DisplayName="Mesaj final" sap:VirtualizedContainerService.HintSize="449.6,197.6" sap2010:WorkflowViewState.IdRef="Sequence_69">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Mesaj " sap:VirtualizedContainerService.HintSize="387.2,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;E-mailul a fost trimis!&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:MessageBox>
     </Sequence>
   </Sequence>
 </Activity>
